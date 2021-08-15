@@ -8,7 +8,6 @@ import java.util.List;
 
 
 class WarfCalc {
-    private static int sumAllSyndicateOfFish;
     private static int dailyLimit;
 
     public static void main(String[] args) throws IOException {
@@ -23,6 +22,7 @@ class WarfCalc {
             System.out.println("1.Острон");
             System.out.println("2.Фортуна");
             System.out.println("3.Скульптуры (фулл/сток)");
+            System.out.println("4.Венера:Тороиды крисма");
             String text = bufferedReader.readLine();
 
             if (text.equals("1")) {
@@ -54,10 +54,14 @@ class WarfCalc {
                     break;
                 }
             }
+            if (text.equals("4")) {
+                crismaCalcReputation();
+                break;
+            }
         }
     }
 
-    public static int bigSumPrice(int quantity, int selectedSyndicate) {
+    public static int bigPrice(int selectedSyndicate) {
         int bigPrice = 0;
 
         if (selectedSyndicate == 1) {
@@ -68,11 +72,11 @@ class WarfCalc {
             bigPrice = 1000;
         }
 
-        return bigPrice * quantity;
+        return bigPrice;
     }
 
 
-    public static int mediumSumPrice(int quantity, int selectedSyndicate) {
+    public static int mediumPrice(int selectedSyndicate) {
         int mediumPrice = 0;
 
         if (selectedSyndicate == 1) {
@@ -83,12 +87,12 @@ class WarfCalc {
             mediumPrice = 800;
         }
 
-        return mediumPrice * quantity;
+        return mediumPrice;
 
     }
 
 
-    public static int smallSumPrice(int quantity, int selectedSyndicate) {
+    public static int smallPrice(int selectedSyndicate) {
         int smallPrice = 0;
 
         if (selectedSyndicate == 1) {
@@ -99,49 +103,106 @@ class WarfCalc {
             smallPrice = 600;
         }
 
-        return smallPrice * quantity;
+        return smallPrice;
 
     }
 
 
     public static void fish(int selectedSyndicate) throws IOException {
 
-        int sumAllSyndicateOfFish = 0;
-
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
         System.out.println("Введите количество большой рыбы");
         int quantityBigFish = Integer.parseInt(bufferedReader.readLine());
-        sumAllSyndicateOfFish = bigSumPrice(quantityBigFish, selectedSyndicate);
 
         System.out.println("Введите количество средней рыбы");
         int quantityMediumFish = Integer.parseInt(bufferedReader.readLine());
-        sumAllSyndicateOfFish += mediumSumPrice(quantityMediumFish, selectedSyndicate);
 
         System.out.println("Введите количество малой рыбы");
         int quantitySmallFish = Integer.parseInt(bufferedReader.readLine());
-        sumAllSyndicateOfFish += smallSumPrice(quantitySmallFish, selectedSyndicate);
 
-        System.out.println("Синтеза " + sumAllSyndicateOfFish);
-        int stockForDays = sumAllSyndicateOfFish / dailyLimit;
-        String days = "";
-        if (stockForDays % 10 == 1) {
-            days = "день";
-        } else if (stockForDays % 10 == 2 || stockForDays % 10 == 3 || stockForDays % 10 == 4) {
-            days = "дня";
-        } else if (stockForDays % 10 == 5 || stockForDays % 10 == 6 || stockForDays % 10 == 7 || stockForDays % 10 == 8 || stockForDays % 10 == 9 || stockForDays % 10 == 0) {
-            days = "дней";
-        }
-        System.out.println("этого хватит на " + stockForDays + " " + days);
+        daysCalc(bigPrice(selectedSyndicate), quantityBigFish);
+        daysCalc(mediumPrice(selectedSyndicate), quantityMediumFish);
+        daysCalc(smallPrice(selectedSyndicate), quantitySmallFish);
+
 
     }
 
-    //todo создать метод sculpture в котором будет реализованны следующие действия
+    private static void daysCalc(int price, int quantity) {
 
-    //todo исправить сетер количества
+        double amountForADays = Math.floor(dailyLimit / price);
+
+        int fullPrice = price * quantity;
+
+        if (amountForADays * price < dailyLimit) {
+            amountForADays += 1;
+        }
+
+        double days = Math.floor(quantity / amountForADays);
+        double sellLoss = (amountForADays * price) - dailyLimit;
+        double totalLoss = sellLoss * days;
+
+
+        if (amountForADays * price < dailyLimit) {
+            amountForADays += 1;
+            //todo можно вкинуть счётчик lost
+
+        }
+        int numOfDays = (int) days;
+
+        String daysText = getLangOfDays(amountForADays, numOfDays);
+
+        System.out.println("==================================================");
+        System.out.println("                                                 =");
+
+        if (quantity % amountForADays == 0) {
+            System.out.println("Этого хватит на " + numOfDays + " " + daysText);
+        } else {
+            System.out.println("Этого хватит на " + quantity / amountForADays + " " + daysText);
+        }
+        int intTotalLoss = (int) totalLoss;
+        if (intTotalLoss ==totalLoss) {
+            System.out.println("Сумарная потеря при текущем лимите " + intTotalLoss);
+        }else {
+            System.out.println("Сумарная потеря при текущем лимите " + totalLoss);
+
+        }
+        System.out.println("Всего репутации без потерь " + price * quantity);
+
+        if (fullPrice == fullPrice - totalLoss) {
+            int fullPriceWithLoss = (int) (fullPrice - totalLoss);
+            System.out.println("Всего репутации с потерями " + fullPriceWithLoss);
+        } else {
+            System.out.println("Всего репутации с потерями " + (fullPrice - totalLoss));
+        }
+
+        System.out.println("                                                 =");
+        System.out.println("==================================================\n");
+
+    }
+
+    private static String getLangOfDays(double amountForADays, int numOfDays) {
+        String daysText = "";
+        if (numOfDays % 10 == 1) {
+            daysText = "день";
+        } else if (numOfDays % 10 == 2 || numOfDays % 10 == 3 || numOfDays % 10 == 4) {
+            daysText = "дня";
+        } else if (numOfDays % 10 == 5 || numOfDays % 10 == 6 || numOfDays % 10 == 7 || numOfDays % 10 == 8 || numOfDays % 10 == 9 || amountForADays % 10 == 0) {
+            daysText = "дней";
+        }
+        return daysText;
+    }
 
     public enum UserSelection {
         FULL, STOCK
+    }
+
+    public static void crismaCalcReputation() throws IOException {
+        int crismaPrice = 6000;
+        System.out.println("Введите колличество тороидов крисма");
+        int quantity = Integer.parseInt(readText());
+        daysCalc(crismaPrice, quantity);
+
     }
 
     public static void sculptureCalc(UserSelection fullOrStock) throws IOException {
