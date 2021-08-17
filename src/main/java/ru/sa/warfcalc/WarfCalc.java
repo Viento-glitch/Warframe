@@ -110,16 +110,14 @@ class WarfCalc {
 
     public static void fish(int selectedSyndicate) throws IOException {
 
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-
         System.out.println("Введите количество большой рыбы");
-        int quantityBigFish = Integer.parseInt(bufferedReader.readLine());
+        int quantityBigFish = Integer.parseInt(readText());
 
         System.out.println("Введите количество средней рыбы");
-        int quantityMediumFish = Integer.parseInt(bufferedReader.readLine());
+        int quantityMediumFish = Integer.parseInt(readText());
 
         System.out.println("Введите количество малой рыбы");
-        int quantitySmallFish = Integer.parseInt(bufferedReader.readLine());
+        int quantitySmallFish = Integer.parseInt(readText());
 
         daysCalc(bigPrice(selectedSyndicate), quantityBigFish);
         daysCalc(mediumPrice(selectedSyndicate), quantityMediumFish);
@@ -145,7 +143,6 @@ class WarfCalc {
 
         if (amountForADays * price < dailyLimit) {
             amountForADays += 1;
-            //todo можно вкинуть счётчик lost
 
         }
         int numOfDays = (int) days;
@@ -161,9 +158,9 @@ class WarfCalc {
             System.out.println("Этого хватит на " + quantity / amountForADays + " " + daysText);
         }
         int intTotalLoss = (int) totalLoss;
-        if (intTotalLoss ==totalLoss) {
+        if (intTotalLoss == totalLoss) {
             System.out.println("Сумарная потеря при текущем лимите " + intTotalLoss);
-        }else {
+        } else {
             System.out.println("Сумарная потеря при текущем лимите " + totalLoss);
 
         }
