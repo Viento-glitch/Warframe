@@ -15,15 +15,13 @@ class WarfCalc {
         dailyLimit = 29000;
         int selectedSyndicate = 0;
 
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-
         while (true) {
             System.out.println("Выберите синдикат для расчёта");
             System.out.println("1.Острон");
             System.out.println("2.Фортуна");
             System.out.println("3.Скульптуры (фулл/сток)");
             System.out.println("4.Венера:Тороиды крисма");
-            String text = bufferedReader.readLine();
+            String text = readText();
 
             if (text.equals("1")) {
                 selectedSyndicate = 1;
@@ -123,7 +121,6 @@ class WarfCalc {
         daysCalc(mediumPrice(selectedSyndicate), quantityMediumFish);
         daysCalc(smallPrice(selectedSyndicate), quantitySmallFish);
 
-
     }
 
     private static void daysCalc(int price, int quantity) {
@@ -147,7 +144,7 @@ class WarfCalc {
         }
         int numOfDays = (int) days;
 
-        String daysText = getLangOfDays(amountForADays, numOfDays);
+        String daysText = getProperStringEnding(numOfDays);
 
         System.out.println("==================================================");
         System.out.println("                                                 =");
@@ -178,16 +175,21 @@ class WarfCalc {
 
     }
 
-    private static String getLangOfDays(double amountForADays, int numOfDays) {
+    private static String getProperStringEnding(int numOfDays) {
         String daysText = "";
         if (numOfDays % 10 == 1) {
             daysText = "день";
         } else if (numOfDays % 10 == 2 || numOfDays % 10 == 3 || numOfDays % 10 == 4) {
             daysText = "дня";
-        } else if (numOfDays % 10 == 5 || numOfDays % 10 == 6 || numOfDays % 10 == 7 || numOfDays % 10 == 8 || numOfDays % 10 == 9 || amountForADays % 10 == 0) {
+        } else
+            if (numOfDays % 10 == 5 || numOfDays % 10 == 6 ||
+                numOfDays % 10 == 7 || numOfDays % 10 == 8 ||
+                numOfDays % 10 == 9 || numOfDays % 10 == 0) {
             daysText = "дней";
         }
+
         return daysText;
+
     }
 
     public enum UserSelection {
@@ -220,29 +222,29 @@ class WarfCalc {
             sculpture.setQuantity(quantity);
         }
 
-        int fullEndo = 0;
-        int fullAmberStars = 0;
-        int fullCyanStars = 0;
+        int totalEndo = 0;
+        int totalAmberStars = 0;
+        int totalCyanStars = 0;
         if (fullOrStock.equals(UserSelection.FULL)) {
             for (Sculpture sculpture : sculptures) {
                 System.out.println("В скульптуре " + sculpture.getName() + " = " + sculpture.getAllEndoOfThisTypeFull() + " Эндо");
-                fullEndo += sculpture.getAllEndoOfThisTypeFull();
+                totalEndo += sculpture.getAllEndoOfThisTypeFull();
                 System.out.println("Звёзд " + sculpture.getAllStarsAmberOfThisType() + " Янтарь");
-                fullAmberStars += sculpture.getAllStarsAmberOfThisType();
+                totalAmberStars += sculpture.getAllStarsAmberOfThisType();
                 System.out.println("Звёзд " + sculpture.getAllStarsCyanOfThisType() + " Циан\n");
-                fullCyanStars += sculpture.getAllStarsCyanOfThisType();
+                totalCyanStars += sculpture.getAllStarsCyanOfThisType();
             }
         } else if (fullOrStock.equals(UserSelection.STOCK)) {
             for (Sculpture sculpture : sculptures) {
                 System.out.println("В скульптурах " + sculpture.getName() + " = " + sculpture.getAllEndoOfThisTypeStock() + " Эндо");
-                fullEndo += sculpture.getAllEndoOfThisTypeStock();
+                totalEndo += sculpture.getAllEndoOfThisTypeStock();
             }
         }
 
-        System.out.println("Всего эндо с скульптур " + fullEndo);
+        System.out.println("Всего эндо с скульптур " + totalEndo);
         if (fullOrStock.equals(UserSelection.FULL)) {
-            System.out.println("Всего звёзд янтарь требуется в скульптуры " + fullAmberStars);
-            System.out.println("Всего звёзд циан требуется в скульптуры " + fullCyanStars);
+            System.out.println("Всего звёзд янтарь требуется в скульптуры " + totalAmberStars);
+            System.out.println("Всего звёзд циан требуется в скульптуры " + totalCyanStars);
         }
     }
 

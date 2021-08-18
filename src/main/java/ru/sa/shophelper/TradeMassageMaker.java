@@ -17,7 +17,7 @@ please commend me on market:heart:
 Куплю прайм хлам:trading:(6*45:ducats:=12:platinum:):trading:
 
  */
-public class Main {
+public class TradeMassageMaker {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String sellOrBuy;
