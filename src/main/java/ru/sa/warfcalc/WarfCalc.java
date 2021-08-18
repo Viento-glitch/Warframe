@@ -125,7 +125,7 @@ class WarfCalc {
 
     private static void daysCalc(int price, int quantity) {
 
-        double amountForADays = Math.floor(dailyLimit / price);
+        double amountForADays = Math.floor(1.0*dailyLimit / price);
 
         int fullPrice = price * quantity;
 
