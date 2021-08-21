@@ -7,21 +7,40 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-class WarfCalc {
-    private static int dailyLimit;
+class WarfHelper {
+    private static final int dailyLimit= 29000;
 
     public static void main(String[] args) throws IOException {
 
-        dailyLimit = 29000;
         int selectedSyndicate = 0;
 
         while (true) {
-            System.out.println("Выберите синдикат для расчёта");
-            System.out.println("1.Острон");
-            System.out.println("2.Фортуна");
-            System.out.println("3.Скульптуры (фулл/сток)");
-            System.out.println("4.Венера:Тороиды крисма");
+            System.out.println("Выберите действие");
+            System.out.println("1.Составление торгового сообщения");
+            System.out.println("2.Калькулятор Warframe");
             String text = readText();
+
+            if (text.equals("1") || text.equals("2")) {
+                if (text.equals("1")) {
+                    tradeMessage();
+                    break;
+                } else {
+                    while (true) {
+                        System.out.println("Выберите синдикат для расчёта");
+                        System.out.println("1.Острон");
+                        System.out.println("2.Фортуна");
+                        System.out.println("3.Скульптуры (фулл/сток)");
+                        System.out.println("4.Венера: Тороиды крисма");
+                        text = readText();
+
+                        if (text.equals("1") || text.equals("2") || text.equals("3") || text.equals("4")) {
+                            break;
+                        } else {
+                            System.out.println("Выбрано не верное значение.");
+                        }
+                    }
+                }
+            }
 
             if (text.equals("1")) {
                 selectedSyndicate = 1;
@@ -125,7 +144,7 @@ class WarfCalc {
 
     private static void daysCalc(int price, int quantity) {
 
-        double amountForADays = Math.floor(1.0*dailyLimit / price);
+        double amountForADays = Math.floor(1.0 * dailyLimit / price);
 
         int fullPrice = price * quantity;
 
@@ -181,8 +200,7 @@ class WarfCalc {
             daysText = "день";
         } else if (numOfDays % 10 == 2 || numOfDays % 10 == 3 || numOfDays % 10 == 4) {
             daysText = "дня";
-        } else
-            if (numOfDays % 10 == 5 || numOfDays % 10 == 6 ||
+        } else if (numOfDays % 10 == 5 || numOfDays % 10 == 6 ||
                 numOfDays % 10 == 7 || numOfDays % 10 == 8 ||
                 numOfDays % 10 == 9 || numOfDays % 10 == 0) {
             daysText = "дней";
@@ -197,7 +215,7 @@ class WarfCalc {
     }
 
     public static void crismaCalcReputation() throws IOException {
-        int crismaPrice = 6000;
+        final int crismaPrice = 6000;
         System.out.println("Введите колличество тороидов крисма");
         int quantity = Integer.parseInt(readText());
         daysCalc(crismaPrice, quantity);
@@ -246,6 +264,51 @@ class WarfCalc {
             System.out.println("Всего звёзд янтарь требуется в скульптуры " + totalAmberStars);
             System.out.println("Всего звёзд циан требуется в скульптуры " + totalCyanStars);
         }
+    }
+
+    private static void tradeMessage() throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String sellOrBuy;
+        while (true) {
+            {
+
+                System.out.println("Выберите действие введя цифру");
+                System.out.println("1.Покупка");
+                System.out.println("2.Продажа");
+                sellOrBuy = reader.readLine();
+
+            }
+            if (sellOrBuy.equals("1") || sellOrBuy.equals("2")) {
+                if (sellOrBuy.equals("1")) {
+                    sellOrBuy = "Куплю";
+                }
+
+                if (sellOrBuy.equals("2")) {
+                    sellOrBuy = "Продам";
+                }
+                break;
+            }
+        }
+        System.out.println("Введите товар");
+        String product = reader.readLine();
+        String productReadyToSelling = "[" + product + "]";
+        System.out.println("Введите цену");
+        String price = reader.readLine();
+        System.out.println("Желаете добавить что-нибудь ещё?");
+        System.out.println("Если же нет просто нажмите Enter");
+        String anythingMore = reader.readLine();
+
+        String fullSellMessage = sellOrBuy + productReadyToSelling + ":trading::platinum:" + price + ":platinum::trading:" + anythingMore;
+        if (checkLengthOfTradeMessage(fullSellMessage)) {
+            System.out.println(fullSellMessage);
+        } else {
+            System.out.println("Длинна превышает допустимую " + fullSellMessage.length() + "/180");
+        }
+    }
+
+    private static boolean checkLengthOfTradeMessage(String parameter) {
+        final int lengthOfParameter = parameter.length();
+        return lengthOfParameter <= 180;
     }
 
     public static String readText() throws IOException {
