@@ -1,5 +1,7 @@
 package ru.sa.warfcalc;
 
+import ru.sa.shophelper.mods.Mod;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,7 +10,7 @@ import java.util.List;
 
 
 class WarfHelper {
-    private static final int dailyLimit= 29000;
+    private static final int dailyLimit = 29000;
 
     public static void main(String[] args) throws IOException {
 
@@ -270,6 +272,23 @@ class WarfHelper {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String sellOrBuy;
         while (true) {
+            System.out.println("Моды или предметы");
+            System.out.println("1.Моды");
+            System.out.println("2.Предметы");
+            String text = readText();
+            if (text.equals("1")) {
+                while (true) {
+                    System.out.println("Введите название мода");
+                    String modName = readText();
+
+                    if (!checkName(modName)) {
+                        System.out.println("Данного прайм мода не обноружено");
+                    } else {
+                        break;
+                    }
+                }
+
+            }
             {
 
                 System.out.println("Выберите действие введя цифру");
@@ -305,6 +324,64 @@ class WarfHelper {
             System.out.println("Длинна превышает допустимую " + fullSellMessage.length() + "/180");
         }
     }
+
+    private static boolean checkName(String name) {
+        List<Mod> mods = new ArrayList<>();
+        mods.add(new Mod("Болевая Точка Прайм"));
+        mods.add(new Mod("Быстрохват Прайм"));
+        mods.add(new Mod("Быстрые руки Прайм"));
+        mods.add(new Mod("В Упор Прайм"));
+        mods.add(new Mod("В Упор Прайм"));
+        mods.add(new Mod("Вожак Стаи Прайм"));
+        mods.add(new Mod("Горячий Заряд Прайм"));
+        mods.add(new Mod("Дробитель Прайм"));
+        mods.add(new Mod("Животный Инстинкт Прайм"));
+        mods.add(new Mod("Заряженные Снаряды Прайм"));
+        mods.add(new Mod("Зачистка Прайм:Гринир"));
+        mods.add(new Mod("Зачистка Прайм:Зараженные"));
+        mods.add(new Mod("Зачистка Прайм:Корпус"));
+        mods.add(new Mod("Зачистка Прайм:Порабощенные"));
+        mods.add(new Mod("Изгнание Прайм:Гринир"));
+        mods.add(new Mod("Изгнание Прайм:Зараженные"));
+        mods.add(new Mod("Изгнание Прайм:Корпус"));
+        mods.add(new Mod("Изгнание Прайм:Порабощенные"));
+        mods.add(new Mod("Инициирование Прайм"));
+        mods.add(new Mod("Крио Патроны Прайм"));
+        mods.add(new Mod("Крушитель Прайм:Гринир"));
+        mods.add(new Mod("Крушитель Прайм:Зараженные"));
+        mods.add(new Mod("Крушитель Прайм:Корпус"));
+        mods.add(new Mod("Крушитель Прайм:Порабощенные"));
+        mods.add(new Mod("Ледяное Прикосновение Прайм"));
+        mods.add(new Mod("Лихорадочный Удар Прайм"));
+        mods.add(new Mod("Морф - Трансформер Прайм"));
+        mods.add(new Mod("Мутатор Прайм:Винтовка"));
+        mods.add(new Mod("Мутатор Прайм:Дробовик"));
+        mods.add(new Mod("Мутатор Прайм:Пистолет"));
+        mods.add(new Mod("Непрерывность Прайм"));
+        mods.add(new Mod("Огненный Шторм Прайм"));
+        mods.add(new Mod("Опустошение Прайм"));
+        mods.add(new Mod("Пистолетный Гамбит Прайм"));
+        mods.add(new Mod("Погибель Прайм:Гринир"));
+        mods.add(new Mod("Погибель Прайм:Зараженные"));
+        mods.add(new Mod("Погибель Прайм:Корпус"));
+        mods.add(new Mod("Погибель Прайм:Порабощенные"));
+        mods.add(new Mod("Поток Прайм"));
+        mods.add(new Mod("Размах Прайм"));
+        mods.add(new Mod("Регенерация Прайм"));
+        mods.add(new Mod("Скользящий Магазин Прайм"));
+        mods.add(new Mod("Тактическая Помпа Прайм"));
+        mods.add(new Mod("Тяжелая Травма Прайм"));
+        boolean found = false;
+        for (int i = 0; i < mods.size(); i++) {
+            String findName = mods.get(i).getName();
+            if (findName.equals(name)) {
+                found = true;
+                break;
+            }
+        }
+        return found;
+    }
+
 
     private static boolean checkLengthOfTradeMessage(String parameter) {
         final int lengthOfParameter = parameter.length();

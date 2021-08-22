@@ -1,8 +1,12 @@
 package ru.sa.shophelper;
 
+import ru.sa.shophelper.mods.Mod;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 /*
 +3 за [Эндо]([нидус]/{[некрос]с стяжкой})[некрос]с бустом и с [рипкас]:suda:
@@ -17,10 +21,11 @@ please commend me on market:heart:
 Куплю прайм хлам:trading:(6*45:ducats:=12:platinum:):trading:
 
  */
-public class tradeMessageMaker {
+public class ProfitableInvestmentCalculatorEndo {
+
     public static void main(String[] args) throws IOException {
 
+
+
     }
-
-
 }
