@@ -271,12 +271,15 @@ class WarfHelper {
     private static void tradeMessage() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String sellOrBuy;
+        String product = "";
         while (true) {
             System.out.println("Моды или предметы");
             System.out.println("1.Моды");
             System.out.println("2.Предметы");
-            String text = readText();
-            if (text.equals("1")) {
+            String modsOrSubjects = readText();
+
+
+            if (modsOrSubjects.equals("1")) {
                 while (true) {
                     System.out.println("Введите название мода");
                     String modName = readText();
@@ -284,6 +287,7 @@ class WarfHelper {
                     if (!checkName(modName)) {
                         System.out.println("Данного прайм мода не обноружено");
                     } else {
+                        product = modName;
                         break;
                     }
                 }
@@ -308,14 +312,17 @@ class WarfHelper {
                 break;
             }
         }
-        System.out.println("Введите товар");
-        String product = reader.readLine();
+
+        if (product.equals("")) {
+            System.out.println("Введите товар");
+            product = readText();
+        }
         String productReadyToSelling = "[" + product + "]";
         System.out.println("Введите цену");
-        String price = reader.readLine();
+        String price = readText();
         System.out.println("Желаете добавить что-нибудь ещё?");
         System.out.println("Если же нет просто нажмите Enter");
-        String anythingMore = reader.readLine();
+        String anythingMore = readText();
 
         String fullSellMessage = sellOrBuy + productReadyToSelling + ":trading::platinum:" + price + ":platinum::trading:" + anythingMore;
         if (checkLengthOfTradeMessage(fullSellMessage)) {
@@ -330,7 +337,6 @@ class WarfHelper {
         mods.add(new Mod("Болевая Точка Прайм"));
         mods.add(new Mod("Быстрохват Прайм"));
         mods.add(new Mod("Быстрые руки Прайм"));
-        mods.add(new Mod("В Упор Прайм"));
         mods.add(new Mod("В Упор Прайм"));
         mods.add(new Mod("Вожак Стаи Прайм"));
         mods.add(new Mod("Горячий Заряд Прайм"));
@@ -372,8 +378,8 @@ class WarfHelper {
         mods.add(new Mod("Тактическая Помпа Прайм"));
         mods.add(new Mod("Тяжелая Травма Прайм"));
         boolean found = false;
-        for (int i = 0; i < mods.size(); i++) {
-            String findName = mods.get(i).getName();
+        for (Mod mod : mods) {
+            String findName = mod.getName();
             if (findName.equals(name)) {
                 found = true;
                 break;
