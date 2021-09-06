@@ -2,11 +2,7 @@ package ru.sa.shophelper;
 
 import ru.sa.shophelper.mods.Mod;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 
 /*
 +3 за [Эндо]([нидус]/{[некрос]с стяжкой})[некрос]с бустом и с [рипкас]:suda:
@@ -25,7 +21,14 @@ public class ProfitableInvestmentCalculatorEndo {
 
     public static void main(String[] args) throws IOException {
 
-
+//        profit();
 
     }
+
+    private static int profit(int maxPrice, int minPrice) {
+
+        return maxPrice - minPrice;
+
+    }
+
 }

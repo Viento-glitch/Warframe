@@ -1,7 +1,10 @@
-package ru.sa.warfcalc;
+package ru.sa.shophelper;
 
 import ru.sa.shophelper.mods.Mod;
 
+import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,8 +14,52 @@ import java.util.List;
 
 class WarfHelper {
     private static final int dailyLimit = 29000;
+    static List<Mod> mods = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {
+        mods.add(new Mod("Болевая Точка Прайм", 0, "https://warframe.market/ru/items/primed_pressure_point"));
+        mods.add(new Mod("Быстрохват Прайм", 0, "https://warframe.market/ru/items/primed_quickdraw"));
+        mods.add(new Mod("Быстрые руки Прайм", 0, "https://warframe.market/ru/items/primed_fast_hands"));
+        mods.add(new Mod("В Упор Прайм", 0, "https://warframe.market/ru/items/primed_point_blank"));
+        mods.add(new Mod("Вожак Стаи Прайм", 0, "https://warframe.market/ru/items/primed_pack_leader"));
+        mods.add(new Mod("Горячий Заряд Прайм", 0, "https://warframe.market/ru/items/primed_heated_charge"));
+        mods.add(new Mod("Дробитель Прайм", 0, "https://warframe.market/ru/items/primed_target_cracker"));
+        mods.add(new Mod("Животный Инстинкт Прайм", 0, "https://warframe.market/ru/items/primed_animal_instinct"));
+        mods.add(new Mod("Заряженные Снаряды Прайм", 0, "https://warframe.market/ru/items/primed_charged_shell"));
+        mods.add(new Mod("Зачистка Прайм: Гринир", 0, "https://warframe.market/ru/items/primed_cleanse_grineer"));
+        mods.add(new Mod("Зачистка Прайм: Зараженные", 0, "https://warframe.market/ru/items/primed_cleanse_infested"));
+        mods.add(new Mod("Зачистка Прайм: Корпус", 0, "https://warframe.market/ru/items/primed_cleanse_corpus"));
+        mods.add(new Mod("Зачистка Прайм: Порабощенные", 0, "https://warframe.market/ru/items/primed_cleanse_corrupted"));
+        mods.add(new Mod("Изгнание Прайм: Гринир", 0, "https://warframe.market/ru/items/primed_expel_grineer"));
+        mods.add(new Mod("Изгнание Прайм: Зараженные", 0, "https://warframe.market/ru/items/primed_expel_infested"));
+        mods.add(new Mod("Изгнание Прайм: Корпус", 0, "https://warframe.market/ru/items/primed_expel_corpus"));
+        mods.add(new Mod("Изгнание Прайм: Порабощенные", 0, "https://warframe.market/ru/items/primed_expel_corrupted"));
+        mods.add(new Mod("Инициирование Прайм", 0, "https://warframe.market/ru/items/primed_fulmination"));
+        mods.add(new Mod("Крио Патроны Прайм", 0, "https://warframe.market/ru/items/primed_cryo_rounds"));
+        mods.add(new Mod("Крушитель Прайм: Гринир", 0, "https://warframe.market/ru/items/primed_smite_grineer"));
+        mods.add(new Mod("Крушитель Прайм: Зараженные", 0, "https://warframe.market/ru/items/primed_smite_infested"));
+        mods.add(new Mod("Крушитель Прайм: Корпус", 0, "https://warframe.market/ru/items/primed_smite_corpus"));
+        mods.add(new Mod("Крушитель Прайм: Порабощенные", 0, "https://warframe.market/ru/items/primed_smite_corrupted"));
+        mods.add(new Mod("Ледяное Прикосновение Прайм", 0, "https://warframe.market/ru/items/primed_chilling_grasp"));
+        mods.add(new Mod("Лихорадочный Удар Прайм", 0, "https://warframe.market/ru/items/primed_fever_strike"));
+        mods.add(new Mod("Морф - Трансформер Прайм", 0, "https://warframe.market/ru/items/primed_morphic_transformer"));
+        mods.add(new Mod("Мутатор Прайм: Винтовка", 0, "https://warframe.market/ru/items/primed_rifle_ammo_mutation"));
+        mods.add(new Mod("Мутатор Прайм: Дробовик", 0, "https://warframe.market/ru/items/primed_shotgun_ammo_mutation"));
+        mods.add(new Mod("Мутатор Прайм: Пистолет", 0, "https://warframe.market/ru/items/primed_pistol_ammo_mutation"));
+        mods.add(new Mod("Непрерывность Прайм", 0, "https://warframe.market/ru/items/primed_continuity"));
+        mods.add(new Mod("Огненный Шторм Прайм", 0, "https://warframe.market/ru/items/primed_firestorm"));
+        mods.add(new Mod("Опустошение Прайм", 0, "https://warframe.market/ru/items/primed_ravage"));
+        mods.add(new Mod("Пистолетный Гамбит Прайм", 0, "https://warframe.market/ru/items/primed_pistol_gambit"));
+        mods.add(new Mod("Погибель Прайм: Гринир", 0, "https://warframe.market/ru/items/primed_bane_of_grineer"));
+        mods.add(new Mod("Погибель Прайм: Зараженные", 0, "https://warframe.market/ru/items/primed_bane_of_infested"));
+        mods.add(new Mod("Погибель Прайм: Корпус", 0, "https://warframe.market/ru/items/primed_bane_of_corpus"));
+        mods.add(new Mod("Погибель Прайм: Порабощенные", 0, "https://warframe.market/ru/items/primed_bane_of_corrupted"));
+        mods.add(new Mod("Поток Прайм", 0, "https://warframe.market/ru/items/primed_flow"));
+        mods.add(new Mod("Размах Прайм", 0, "https://warframe.market/ru/items/primed_reach"));
+        mods.add(new Mod("Регенерация Прайм", 0, "https://warframe.market/ru/items/primed_regen"));
+        mods.add(new Mod("Скользящий Магазин Прайм", 0, "https://warframe.market/ru/items/primed_slip_magazine"));
+        mods.add(new Mod("Тактическая Помпа Прайм", 0, "https://warframe.market/ru/items/primed_tactical_pump"));
+        mods.add(new Mod("Тяжелая Травма Прайм", 0, "https://warframe.market/ru/items/primed_heavy_trauma"));
 
         int selectedSyndicate = 0;
 
@@ -33,6 +80,7 @@ class WarfHelper {
                         System.out.println("2.Фортуна");
                         System.out.println("3.Скульптуры (фулл/сток)");
                         System.out.println("4.Венера: Тороиды крисма");
+                        System.out.println("5.");
                         text = readText();
 
                         if (text.equals("1") || text.equals("2") || text.equals("3") || text.equals("4")) {
@@ -166,7 +214,7 @@ class WarfHelper {
         int numOfDays = (int) days;
 
         String daysText = getProperStringEnding(numOfDays);
-
+        //todo сделать сумму трёх значений рыбы
         System.out.println("==================================================");
         System.out.println("                                                 =");
 
@@ -325,58 +373,19 @@ class WarfHelper {
         String anythingMore = readText();
 
         String fullSellMessage = sellOrBuy + productReadyToSelling + ":trading::platinum:" + price + ":platinum::trading:" + anythingMore;
+
+
         if (checkLengthOfTradeMessage(fullSellMessage)) {
+            System.out.println("Полученное сообщение(Уже скопировано в буфер обмена)");
             System.out.println(fullSellMessage);
+            copy(fullSellMessage);
         } else {
             System.out.println("Длинна превышает допустимую " + fullSellMessage.length() + "/180");
         }
     }
 
     private static boolean checkName(String name) {
-        List<Mod> mods = new ArrayList<>();
-        mods.add(new Mod("Болевая Точка Прайм"));
-        mods.add(new Mod("Быстрохват Прайм"));
-        mods.add(new Mod("Быстрые руки Прайм"));
-        mods.add(new Mod("В Упор Прайм"));
-        mods.add(new Mod("Вожак Стаи Прайм"));
-        mods.add(new Mod("Горячий Заряд Прайм"));
-        mods.add(new Mod("Дробитель Прайм"));
-        mods.add(new Mod("Животный Инстинкт Прайм"));
-        mods.add(new Mod("Заряженные Снаряды Прайм"));
-        mods.add(new Mod("Зачистка Прайм:Гринир"));
-        mods.add(new Mod("Зачистка Прайм:Зараженные"));
-        mods.add(new Mod("Зачистка Прайм:Корпус"));
-        mods.add(new Mod("Зачистка Прайм:Порабощенные"));
-        mods.add(new Mod("Изгнание Прайм:Гринир"));
-        mods.add(new Mod("Изгнание Прайм:Зараженные"));
-        mods.add(new Mod("Изгнание Прайм:Корпус"));
-        mods.add(new Mod("Изгнание Прайм:Порабощенные"));
-        mods.add(new Mod("Инициирование Прайм"));
-        mods.add(new Mod("Крио Патроны Прайм"));
-        mods.add(new Mod("Крушитель Прайм:Гринир"));
-        mods.add(new Mod("Крушитель Прайм:Зараженные"));
-        mods.add(new Mod("Крушитель Прайм:Корпус"));
-        mods.add(new Mod("Крушитель Прайм:Порабощенные"));
-        mods.add(new Mod("Ледяное Прикосновение Прайм"));
-        mods.add(new Mod("Лихорадочный Удар Прайм"));
-        mods.add(new Mod("Морф - Трансформер Прайм"));
-        mods.add(new Mod("Мутатор Прайм:Винтовка"));
-        mods.add(new Mod("Мутатор Прайм:Дробовик"));
-        mods.add(new Mod("Мутатор Прайм:Пистолет"));
-        mods.add(new Mod("Непрерывность Прайм"));
-        mods.add(new Mod("Огненный Шторм Прайм"));
-        mods.add(new Mod("Опустошение Прайм"));
-        mods.add(new Mod("Пистолетный Гамбит Прайм"));
-        mods.add(new Mod("Погибель Прайм:Гринир"));
-        mods.add(new Mod("Погибель Прайм:Зараженные"));
-        mods.add(new Mod("Погибель Прайм:Корпус"));
-        mods.add(new Mod("Погибель Прайм:Порабощенные"));
-        mods.add(new Mod("Поток Прайм"));
-        mods.add(new Mod("Размах Прайм"));
-        mods.add(new Mod("Регенерация Прайм"));
-        mods.add(new Mod("Скользящий Магазин Прайм"));
-        mods.add(new Mod("Тактическая Помпа Прайм"));
-        mods.add(new Mod("Тяжелая Травма Прайм"));
+
         boolean found = false;
         for (Mod mod : mods) {
             String findName = mod.getName();
@@ -388,6 +397,32 @@ class WarfHelper {
         return found;
     }
 
+    private static void modSelling() {
+        int found = 1;
+
+        for (Mod mod : mods) {
+            String selected = mod.getName();
+
+            if (mod.getQuantity() > 0) {
+                System.out.println("У вас есть на прадажу");
+                System.out.println(found + ". " + selected);
+                System.out.println("В колличестве " + mod.getQuantity() + " шт");
+                found++;
+            }
+        }
+    }
+
+    private static int profit(int maxPrice, int minPrice) {
+
+        return maxPrice - minPrice;
+
+    }
+
+    public static void copy(String copiedString) {
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+        StringSelection stringSelection = new StringSelection(copiedString);
+        clipboard.setContents(stringSelection,null);
+    }
 
     private static boolean checkLengthOfTradeMessage(String parameter) {
         final int lengthOfParameter = parameter.length();

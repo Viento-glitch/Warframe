@@ -4,13 +4,27 @@ public class Mod {
 
     String name;
     int price;
+    int quantity;
 
-    public Mod() {
+    String link;
+
+    public Mod(String name, int quantity) {
+        this.name = name;
+        this.quantity = quantity;
     }
 
-    public Mod(String name) {
+    public String getLink() {
+        return link;
+    }
+
+    public Mod(String name, int quantity, String link) {
         this.name = name;
-        this.price = price;
+        this.quantity = quantity;
+        this.link = link;
+    }
+
+    public int getQuantity() {
+        return quantity;
     }
 
     public String getName() {

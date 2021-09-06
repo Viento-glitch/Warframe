@@ -1,0 +1,308 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "type": "array",
+    "items": {
+        "$ref": "#/definitions/Welcome1Element"
+    },
+    "definitions": {
+        "Welcome1Element": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "$ref": "#/definitions/Type"
+                },
+                "payload": {
+                    "$ref": "#/definitions/Payload"
+                }
+            },
+            "required": [
+                "payload",
+                "type"
+            ],
+            "title": "Welcome1Element"
+        },
+        "Payload": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "order": {
+                    "$ref": "#/definitions/Order"
+                }
+            },
+            "required": [
+                "order"
+            ],
+            "title": "Payload"
+        },
+        "Order": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "creation_date": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "order_type": {
+                    "$ref": "#/definitions/OrderType"
+                },
+                "quantity": {
+                    "type": "integer"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "user": {
+                    "$ref": "#/definitions/User"
+                },
+                "platinum": {
+                    "type": "integer"
+                },
+                "item": {
+                    "$ref": "#/definitions/Item"
+                },
+                "region": {
+                    "$ref": "#/definitions/Region"
+                },
+                "visible": {
+                    "type": "boolean"
+                },
+                "last_update": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "platform": {
+                    "$ref": "#/definitions/Platform"
+                },
+                "subtype": {
+                    "type": "string"
+                },
+                "mod_rank": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "creation_date",
+                "id",
+                "item",
+                "last_update",
+                "order_type",
+                "platform",
+                "platinum",
+                "quantity",
+                "region",
+                "user",
+                "visible"
+            ],
+            "title": "Order"
+        },
+        "Item": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "thumb": {
+                    "type": "string"
+                },
+                "icon_format": {
+                    "$ref": "#/definitions/IconFormat"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "sub_icon": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "icon": {
+                    "type": "string"
+                },
+                "url_name": {
+                    "type": "string"
+                },
+                "en": {
+                    "$ref": "#/definitions/De"
+                },
+                "ru": {
+                    "$ref": "#/definitions/De"
+                },
+                "ko": {
+                    "$ref": "#/definitions/De"
+                },
+                "fr": {
+                    "$ref": "#/definitions/De"
+                },
+                "sv": {
+                    "$ref": "#/definitions/De"
+                },
+                "de": {
+                    "$ref": "#/definitions/De"
+                },
+                "zh-hant": {
+                    "$ref": "#/definitions/De"
+                },
+                "zh-hans": {
+                    "$ref": "#/definitions/De"
+                },
+                "pt": {
+                    "$ref": "#/definitions/De"
+                },
+                "es": {
+                    "$ref": "#/definitions/De"
+                },
+                "pl": {
+                    "$ref": "#/definitions/De"
+                },
+                "subtypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "mod_max_rank": {
+                    "type": "integer"
+                },
+                "ducats": {
+                    "type": "integer"
+                },
+                "quantity_for_set": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "de",
+                "en",
+                "es",
+                "fr",
+                "icon",
+                "icon_format",
+                "id",
+                "ko",
+                "pl",
+                "pt",
+                "ru",
+                "sub_icon",
+                "sv",
+                "tags",
+                "thumb",
+                "url_name",
+                "zh-hans",
+                "zh-hant"
+            ],
+            "title": "Item"
+        },
+        "De": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "item_name": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "item_name"
+            ],
+            "title": "De"
+        },
+        "User": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "reputation": {
+                    "type": "integer"
+                },
+                "region": {
+                    "$ref": "#/definitions/Region"
+                },
+                "avatar": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "last_seen": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "ingame_name": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "status": {
+                    "$ref": "#/definitions/Status"
+                }
+            },
+            "required": [
+                "avatar",
+                "id",
+                "ingame_name",
+                "last_seen",
+                "region",
+                "reputation",
+                "status"
+            ],
+            "title": "User"
+        },
+        "IconFormat": {
+            "type": "string",
+            "enum": [
+                "land",
+                "port"
+            ],
+            "title": "IconFormat"
+        },
+        "OrderType": {
+            "type": "string",
+            "enum": [
+                "sell",
+                "buy"
+            ],
+            "title": "OrderType"
+        },
+        "Platform": {
+            "type": "string",
+            "enum": [
+                "pc"
+            ],
+            "title": "Platform"
+        },
+        "Region": {
+            "type": "string",
+            "enum": [
+                "en"
+            ],
+            "title": "Region"
+        },
+        "Status": {
+            "type": "string",
+            "enum": [
+                "ingame"
+            ],
+            "title": "Status"
+        },
+        "Type": {
+            "type": "string",
+            "enum": [
+                "@WS/SUBSCRIPTIONS/MOST_RECENT/NEW_ORDER"
+            ],
+            "title": "Type"
+        }
+    }
+}

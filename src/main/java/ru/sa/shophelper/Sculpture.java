@@ -1,4 +1,4 @@
-package ru.sa.warfcalc;
+package ru.sa.shophelper;
 
 public class Sculpture {
 
