@@ -17,52 +17,9 @@ class WarfHelper {
     static List<Mod> mods = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {
-        mods.add(new Mod("Болевая Точка Прайм", 0, "https://warframe.market/ru/items/primed_pressure_point"));
-        mods.add(new Mod("Быстрохват Прайм", 0, "https://warframe.market/ru/items/primed_quickdraw"));
-        mods.add(new Mod("Быстрые руки Прайм", 0, "https://warframe.market/ru/items/primed_fast_hands"));
-        mods.add(new Mod("В Упор Прайм", 0, "https://warframe.market/ru/items/primed_point_blank"));
-        mods.add(new Mod("Вожак Стаи Прайм", 0, "https://warframe.market/ru/items/primed_pack_leader"));
-        mods.add(new Mod("Горячий Заряд Прайм", 0, "https://warframe.market/ru/items/primed_heated_charge"));
-        mods.add(new Mod("Дробитель Прайм", 0, "https://warframe.market/ru/items/primed_target_cracker"));
-        mods.add(new Mod("Животный Инстинкт Прайм", 0, "https://warframe.market/ru/items/primed_animal_instinct"));
-        mods.add(new Mod("Заряженные Снаряды Прайм", 0, "https://warframe.market/ru/items/primed_charged_shell"));
-        mods.add(new Mod("Зачистка Прайм: Гринир", 0, "https://warframe.market/ru/items/primed_cleanse_grineer"));
-        mods.add(new Mod("Зачистка Прайм: Зараженные", 0, "https://warframe.market/ru/items/primed_cleanse_infested"));
-        mods.add(new Mod("Зачистка Прайм: Корпус", 0, "https://warframe.market/ru/items/primed_cleanse_corpus"));
-        mods.add(new Mod("Зачистка Прайм: Порабощенные", 0, "https://warframe.market/ru/items/primed_cleanse_corrupted"));
-        mods.add(new Mod("Изгнание Прайм: Гринир", 0, "https://warframe.market/ru/items/primed_expel_grineer"));
-        mods.add(new Mod("Изгнание Прайм: Зараженные", 0, "https://warframe.market/ru/items/primed_expel_infested"));
-        mods.add(new Mod("Изгнание Прайм: Корпус", 0, "https://warframe.market/ru/items/primed_expel_corpus"));
-        mods.add(new Mod("Изгнание Прайм: Порабощенные", 0, "https://warframe.market/ru/items/primed_expel_corrupted"));
-        mods.add(new Mod("Инициирование Прайм", 0, "https://warframe.market/ru/items/primed_fulmination"));
-        mods.add(new Mod("Крио Патроны Прайм", 0, "https://warframe.market/ru/items/primed_cryo_rounds"));
-        mods.add(new Mod("Крушитель Прайм: Гринир", 0, "https://warframe.market/ru/items/primed_smite_grineer"));
-        mods.add(new Mod("Крушитель Прайм: Зараженные", 0, "https://warframe.market/ru/items/primed_smite_infested"));
-        mods.add(new Mod("Крушитель Прайм: Корпус", 0, "https://warframe.market/ru/items/primed_smite_corpus"));
-        mods.add(new Mod("Крушитель Прайм: Порабощенные", 0, "https://warframe.market/ru/items/primed_smite_corrupted"));
-        mods.add(new Mod("Ледяное Прикосновение Прайм", 0, "https://warframe.market/ru/items/primed_chilling_grasp"));
-        mods.add(new Mod("Лихорадочный Удар Прайм", 0, "https://warframe.market/ru/items/primed_fever_strike"));
-        mods.add(new Mod("Морф - Трансформер Прайм", 0, "https://warframe.market/ru/items/primed_morphic_transformer"));
-        mods.add(new Mod("Мутатор Прайм: Винтовка", 0, "https://warframe.market/ru/items/primed_rifle_ammo_mutation"));
-        mods.add(new Mod("Мутатор Прайм: Дробовик", 0, "https://warframe.market/ru/items/primed_shotgun_ammo_mutation"));
-        mods.add(new Mod("Мутатор Прайм: Пистолет", 0, "https://warframe.market/ru/items/primed_pistol_ammo_mutation"));
-        mods.add(new Mod("Непрерывность Прайм", 0, "https://warframe.market/ru/items/primed_continuity"));
-        mods.add(new Mod("Огненный Шторм Прайм", 0, "https://warframe.market/ru/items/primed_firestorm"));
-        mods.add(new Mod("Опустошение Прайм", 0, "https://warframe.market/ru/items/primed_ravage"));
-        mods.add(new Mod("Пистолетный Гамбит Прайм", 0, "https://warframe.market/ru/items/primed_pistol_gambit"));
-        mods.add(new Mod("Погибель Прайм: Гринир", 0, "https://warframe.market/ru/items/primed_bane_of_grineer"));
-        mods.add(new Mod("Погибель Прайм: Зараженные", 0, "https://warframe.market/ru/items/primed_bane_of_infested"));
-        mods.add(new Mod("Погибель Прайм: Корпус", 0, "https://warframe.market/ru/items/primed_bane_of_corpus"));
-        mods.add(new Mod("Погибель Прайм: Порабощенные", 0, "https://warframe.market/ru/items/primed_bane_of_corrupted"));
-        mods.add(new Mod("Поток Прайм", 0, "https://warframe.market/ru/items/primed_flow"));
-        mods.add(new Mod("Размах Прайм", 0, "https://warframe.market/ru/items/primed_reach"));
-        mods.add(new Mod("Регенерация Прайм", 0, "https://warframe.market/ru/items/primed_regen"));
-        mods.add(new Mod("Скользящий Магазин Прайм", 0, "https://warframe.market/ru/items/primed_slip_magazine"));
-        mods.add(new Mod("Тактическая Помпа Прайм", 0, "https://warframe.market/ru/items/primed_tactical_pump"));
-        mods.add(new Mod("Тяжелая Травма Прайм", 0, "https://warframe.market/ru/items/primed_heavy_trauma"));
+        makeModsList();
 
         int selectedSyndicate = 0;
-
         while (true) {
             System.out.println("Выберите действие");
             System.out.println("1.Составление торгового сообщения");
@@ -126,6 +83,52 @@ class WarfHelper {
                 break;
             }
         }
+    }
+
+    private static void makeModsList() {
+        mods.add(new Mod("Болевая Точка Прайм", 0, "https://warframe.market/ru/items/primed_pressure_point"));
+        mods.add(new Mod("Быстрохват Прайм", 0, "https://warframe.market/ru/items/primed_quickdraw"));
+        mods.add(new Mod("Быстрые руки Прайм", 0, "https://warframe.market/ru/items/primed_fast_hands"));
+        mods.add(new Mod("В Упор Прайм", 0, "https://warframe.market/ru/items/primed_point_blank"));
+        mods.add(new Mod("Вожак Стаи Прайм", 0, "https://warframe.market/ru/items/primed_pack_leader"));
+        mods.add(new Mod("Горячий Заряд Прайм", 0, "https://warframe.market/ru/items/primed_heated_charge"));
+        mods.add(new Mod("Дробитель Прайм", 0, "https://warframe.market/ru/items/primed_target_cracker"));
+        mods.add(new Mod("Животный Инстинкт Прайм", 0, "https://warframe.market/ru/items/primed_animal_instinct"));
+        mods.add(new Mod("Заряженные Снаряды Прайм", 0, "https://warframe.market/ru/items/primed_charged_shell"));
+        mods.add(new Mod("Зачистка Прайм: Гринир", 0, "https://warframe.market/ru/items/primed_cleanse_grineer"));
+        mods.add(new Mod("Зачистка Прайм: Зараженные", 0, "https://warframe.market/ru/items/primed_cleanse_infested"));
+        mods.add(new Mod("Зачистка Прайм: Корпус", 0, "https://warframe.market/ru/items/primed_cleanse_corpus"));
+        mods.add(new Mod("Зачистка Прайм: Порабощенные", 0, "https://warframe.market/ru/items/primed_cleanse_corrupted"));
+        mods.add(new Mod("Изгнание Прайм: Гринир", 0, "https://warframe.market/ru/items/primed_expel_grineer"));
+        mods.add(new Mod("Изгнание Прайм: Зараженные", 0, "https://warframe.market/ru/items/primed_expel_infested"));
+        mods.add(new Mod("Изгнание Прайм: Корпус", 0, "https://warframe.market/ru/items/primed_expel_corpus"));
+        mods.add(new Mod("Изгнание Прайм: Порабощенные", 0, "https://warframe.market/ru/items/primed_expel_corrupted"));
+        mods.add(new Mod("Инициирование Прайм", 0, "https://warframe.market/ru/items/primed_fulmination"));
+        mods.add(new Mod("Крио Патроны Прайм", 0, "https://warframe.market/ru/items/primed_cryo_rounds"));
+        mods.add(new Mod("Крушитель Прайм: Гринир", 0, "https://warframe.market/ru/items/primed_smite_grineer"));
+        mods.add(new Mod("Крушитель Прайм: Зараженные", 0, "https://warframe.market/ru/items/primed_smite_infested"));
+        mods.add(new Mod("Крушитель Прайм: Корпус", 0, "https://warframe.market/ru/items/primed_smite_corpus"));
+        mods.add(new Mod("Крушитель Прайм: Порабощенные", 0, "https://warframe.market/ru/items/primed_smite_corrupted"));
+        mods.add(new Mod("Ледяное Прикосновение Прайм", 0, "https://warframe.market/ru/items/primed_chilling_grasp"));
+        mods.add(new Mod("Лихорадочный Удар Прайм", 0, "https://warframe.market/ru/items/primed_fever_strike"));
+        mods.add(new Mod("Морф - Трансформер Прайм", 0, "https://warframe.market/ru/items/primed_morphic_transformer"));
+        mods.add(new Mod("Мутатор Прайм: Винтовка", 0, "https://warframe.market/ru/items/primed_rifle_ammo_mutation"));
+        mods.add(new Mod("Мутатор Прайм: Дробовик", 0, "https://warframe.market/ru/items/primed_shotgun_ammo_mutation"));
+        mods.add(new Mod("Мутатор Прайм: Пистолет", 0, "https://warframe.market/ru/items/primed_pistol_ammo_mutation"));
+        mods.add(new Mod("Непрерывность Прайм", 0, "https://warframe.market/ru/items/primed_continuity"));
+        mods.add(new Mod("Огненный Шторм Прайм", 0, "https://warframe.market/ru/items/primed_firestorm"));
+        mods.add(new Mod("Опустошение Прайм", 0, "https://warframe.market/ru/items/primed_ravage"));
+        mods.add(new Mod("Пистолетный Гамбит Прайм", 0, "https://warframe.market/ru/items/primed_pistol_gambit"));
+        mods.add(new Mod("Погибель Прайм: Гринир", 0, "https://warframe.market/ru/items/primed_bane_of_grineer"));
+        mods.add(new Mod("Погибель Прайм: Зараженные", 0, "https://warframe.market/ru/items/primed_bane_of_infested"));
+        mods.add(new Mod("Погибель Прайм: Корпус", 0, "https://warframe.market/ru/items/primed_bane_of_corpus"));
+        mods.add(new Mod("Погибель Прайм: Порабощенные", 0, "https://warframe.market/ru/items/primed_bane_of_corrupted"));
+        mods.add(new Mod("Поток Прайм", 0, "https://warframe.market/ru/items/primed_flow"));
+        mods.add(new Mod("Размах Прайм", 0, "https://warframe.market/ru/items/primed_reach"));
+        mods.add(new Mod("Регенерация Прайм", 0, "https://warframe.market/ru/items/primed_regen"));
+        mods.add(new Mod("Скользящий Магазин Прайм", 0, "https://warframe.market/ru/items/primed_slip_magazine"));
+        mods.add(new Mod("Тактическая Помпа Прайм", 0, "https://warframe.market/ru/items/primed_tactical_pump"));
+        mods.add(new Mod("Тяжелая Травма Прайм", 0, "https://warframe.market/ru/items/primed_heavy_trauma"));
     }
 
     public static int bigPrice(int selectedSyndicate) {
@@ -421,7 +424,7 @@ class WarfHelper {
     public static void copy(String copiedString) {
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         StringSelection stringSelection = new StringSelection(copiedString);
-        clipboard.setContents(stringSelection,null);
+        clipboard.setContents(stringSelection, null);
     }
 
     private static boolean checkLengthOfTradeMessage(String parameter) {

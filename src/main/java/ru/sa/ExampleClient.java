@@ -42,7 +42,8 @@ public class ExampleClient extends WebSocketClient {
         System.out.println("received: " + message);
         if (!receivedFirstMessage) {
             send("{\"type\":\"@WS/USER/SET_STATUS\",\"payload\":\"ingame\"}");
-//            send("{\"type\":\"@WS/SUBSCRIBE/MOST_RECENT\"}");
+
+            //send("{\"type\":\"@WS/SUBSCRIBE/MOST_RECENT\"}");
 
             receivedFirstMessage = true;
         } else {
@@ -68,4 +69,4 @@ public class ExampleClient extends WebSocketClient {
         client.connect();
         Thread.sleep(200);
     }
-}
+}//
