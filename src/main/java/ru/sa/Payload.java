@@ -13,6 +13,16 @@ public class Payload {
     @Expose
     private List<Order> orders = null;
 
+    private String nameOfProduct;
+
+    public String getNameOfProduct() {
+        return nameOfProduct;
+    }
+
+    public void setNameOfProduct(String nameOfProduct) {
+        this.nameOfProduct = nameOfProduct;
+    }
+
     public List<Order> getOrders() {
         return orders;
     }

@@ -16,6 +16,9 @@ import java.util.Date;
 import java.util.List;
 
 public class NameParser {
+    static String pathToUrl = "C:\\Users\\Viento\\Downloads\\wfm-items-master\\url.txt";
+    static String pathToItems = "C:\\Users\\Viento\\Downloads\\wfm-items-master\\tracked\\items\\";
+    static String pathToResult = "C:\\Users\\Viento\\Downloads\\wfm-items-master\\MYresults\\";
 
     public static void main(String[] args) throws Exception {
 
@@ -23,9 +26,6 @@ public class NameParser {
 
 //        firstMissionMakingUrlFile();
 
-        String pathToUrl = "C:\\Users\\Viento\\Downloads\\wfm-items-master\\url.txt";
-        String pathToItems = "C:\\Users\\Viento\\Downloads\\wfm-items-master\\tracked\\items\\";
-        String pathToResult = "C:\\Users\\Viento\\Downloads\\wfm-items-master\\MYresults\\";
         List<File> filePaths = getPathsFromDirectory(pathToItems);
         List<String> listOfNames = getNamesToUrl(pathToItems, filePaths);
 
@@ -103,7 +103,7 @@ public class NameParser {
         makeTxtFile(url, pathToUrl);
     }
 
-    private static List<File> scanDirectory(String path) {
+    static List<File> scanDirectory(String path) {
         File dir = new File(path);
         File[] arrFiles = dir.listFiles();
         List<File> listOfNames = Arrays.asList(arrFiles);
