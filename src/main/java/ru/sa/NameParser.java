@@ -166,11 +166,11 @@ public class NameParser {
         }
     }
 
-    private static void makeTxtFile(String text, String fileName) {
+    static void makeTxtFile(String textToFile, String fileName) {
         if (fileName.equals("failedUrls.txt")) {
         }
         makeTextFile(fileName);
-        updateTextFile(text, fileName);
+        updateTextFile(textToFile, fileName);
     }
 
     private static void updateTextFile(String text, String fileName) {

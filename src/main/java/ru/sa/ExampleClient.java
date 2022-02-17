@@ -69,4 +69,4 @@ public class ExampleClient extends WebSocketClient {
         client.connect();
         Thread.sleep(200);
     }
-}//
+}

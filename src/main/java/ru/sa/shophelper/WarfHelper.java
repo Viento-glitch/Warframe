@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-class WarfHelper {
+public class WarfHelper {
     private static final int dailyLimit = 29000;
     static List<Mod> mods = new ArrayList<>();
 
@@ -85,7 +85,7 @@ class WarfHelper {
         }
     }
 
-    private static void makeModsList() {
+    public static List<Mod> makeModsList() {
         mods.add(new Mod("Болевая Точка Прайм", 0, "https://warframe.market/ru/items/primed_pressure_point"));
         mods.add(new Mod("Быстрохват Прайм", 0, "https://warframe.market/ru/items/primed_quickdraw"));
         mods.add(new Mod("Быстрые руки Прайм", 0, "https://warframe.market/ru/items/primed_fast_hands"));
@@ -129,6 +129,7 @@ class WarfHelper {
         mods.add(new Mod("Скользящий Магазин Прайм", 0, "https://warframe.market/ru/items/primed_slip_magazine"));
         mods.add(new Mod("Тактическая Помпа Прайм", 0, "https://warframe.market/ru/items/primed_tactical_pump"));
         mods.add(new Mod("Тяжелая Травма Прайм", 0, "https://warframe.market/ru/items/primed_heavy_trauma"));
+        return mods;
     }
 
     public static int bigPrice(int selectedSyndicate) {
