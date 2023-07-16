@@ -227,12 +227,13 @@ public class WarfHelper {
         } else {
             System.out.println("Этого хватит на " + quantity / amountForADays + " " + daysText);
         }
+
+
         int intTotalLoss = (int) totalLoss;
         if (intTotalLoss == totalLoss) {
             System.out.println("Сумарная потеря при текущем лимите " + intTotalLoss);
         } else {
             System.out.println("Сумарная потеря при текущем лимите " + totalLoss);
-
         }
         System.out.println("Всего репутации без потерь " + price * quantity);
 
